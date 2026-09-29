@@ -425,16 +425,16 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
         <div class="contact-point"><div class="ico">🤝</div><div><h4>Partnerships & licensing</h4><span>White-label, site licenses, and IP acquisition.</span></div></div>
         <div class="contact-point"><div class="ico">🔐</div><div><h4>Your data stays yours</h4><span>Nothing you share here leaves your control.</span></div></div>
       </div>
-      <form class="form" onsubmit="return submitForm(event)">
+      <form class="form" action="mailto:placeholder@leanflow.eu" method="POST" enctype="text/plain" onsubmit="alert('Thank you — we will be in touch shortly.')">
         <div class="form-row">
-          <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" required placeholder="Jane Doe"></div>
-          <div class="field"><label for="f-company">Company</label><input id="f-company" type="text" placeholder="Acme Manufacturing"></div>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required placeholder="Jane Doe"></div>
+          <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" placeholder="Acme Manufacturing"></div>
         </div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" required placeholder="jane@acme.com"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="jane@acme.com"></div>
         <div class="form-row">
           <div class="field">
             <label for="f-interest">Interest</label>
-            <select id="f-interest">
+            <select id="f-interest" name="interest">
               <option value="Starter">Starter</option>
               <option value="Enterprise">Enterprise</option>
               <option value="Elite">Elite</option>
@@ -447,7 +447,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
           </div>
           <div class="field">
             <label for="f-machines">Machines</label>
-            <select id="f-machines">
+            <select id="f-machines" name="machines">
               <option value="1-10">1–10</option>
               <option value="11-25">11–25</option>
               <option value="26-100">26–100</option>
@@ -456,7 +456,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
             </select>
           </div>
         </div>
-        <div class="field"><label for="f-message">Message</label><textarea id="f-message" placeholder="Tell us about your operation…"></textarea></div>
+        <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message" placeholder="Tell us about your operation…"></textarea></div>
         <button type="submit" class="btn-primary">Send Message</button>
         <p class="form-note">We'll get back to you within one business day.</p>
       </form>
@@ -535,13 +535,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closePlan();
 function scrollToContact(interest){
   if(interest){var sel=document.getElementById('f-interest');if(sel)sel.value=interest;}
   document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-}
-function submitForm(e){
-  e.preventDefault();
-  var btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='Thank you — we’ll be in touch!';
-  btn.disabled=true;
-  return false;
 }
 </script>
 </body>
