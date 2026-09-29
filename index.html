@@ -112,6 +112,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,16,0.85)
 .managed-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold);border-radius:18px;padding:30px 36px;margin-top:24px}
 .managed-bar h3{font-size:22px;font-weight:800;color:#fff;display:flex;align-items:center;gap:12px}
 .managed-bar p{color:var(--muted);font-size:14px;margin-top:4px}
+.hardware-note{text-align:center;color:var(--muted);font-size:14px;margin-top:32px;max-width:620px;margin-left:auto;margin-right:auto}
+.hardware-note b{color:var(--titanium);font-weight:700}
 .managed-price{font-size:32px;font-weight:800;color:var(--gold)}
 .managed-price small{font-size:14px;font-weight:500;color:var(--muted)}
 
@@ -330,6 +332,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
           <li>Single site</li>
           <li>Community support</li>
           <li>Self-hosted, your data</li>
+          <li>Any number of machines</li>
         </ul>
         <button class="plan-btn" onclick="openPlan('Community')">Get Started</button>
       </div>
@@ -343,7 +346,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
           <li>Circles 1–3</li>
           <li>Insight & guidance</li>
           <li>Email support</li>
-          <li>Up to 25 machines</li>
+          <li>1–5 machines</li>
         </ul>
         <button class="plan-btn" onclick="openPlan('Starter')">Choose Starter</button>
       </div>
@@ -358,7 +361,8 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
           <li>Circles 1–4</li>
           <li>Cross-floor coordination</li>
           <li>Priority support</li>
-          <li>Unlimited machines</li>
+          <li>6–20 machines</li>
+          <li>Unlimited users</li>
           <li>Multi-site ready</li>
         </ul>
         <button class="plan-btn" onclick="openPlan('Enterprise')">Choose Enterprise</button>
@@ -387,10 +391,13 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:52px 24
         <p>We run it end-to-end. Fully managed sovereignty with white-glove onboarding and a dedicated team.</p>
       </div>
       <div style="text-align:right">
-        <div class="managed-price">€5,999<small>/mo</small></div>
+        <div class="managed-price" data-monthly="€5,999<small>/mo</small>" data-annual="€57,590<small>/yr</small>">€5,999<small>/mo</small></div>
+        <div class="plan-price-annual" data-annual-note="€57,590 billed annually">&nbsp;</div>
       </div>
       <button class="btn-primary" onclick="scrollToContact('Elite Managed')">Contact Sales</button>
     </div>
+
+    <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included.</p>
   </div>
 </section>
 
@@ -508,7 +515,7 @@ function toggleBilling(){
   document.getElementById('billingSwitch').classList.toggle('on',annual);
   document.getElementById('lblMonthly').classList.toggle('active',!annual);
   document.getElementById('lblAnnual').classList.toggle('active',annual);
-  document.querySelectorAll('.plan-price[data-monthly]').forEach(function(el){
+  document.querySelectorAll('.plan-price[data-monthly],.managed-price[data-monthly]').forEach(function(el){
     el.innerHTML = annual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
   });
   document.querySelectorAll('.plan-price-annual[data-annual-note]').forEach(function(el){
