@@ -376,18 +376,10 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
       <!-- Elite -->
       <div class="plan">
         <div class="plan-name">Elite</div>
-        <div class="plan-desc">For factories with 21–150 machines demanding full operational intelligence.</div>
-        <div class="plan-price" data-monthly="from €2,499<small>/mo</small>" data-annual="from €23,990<small>/yr</small>">from €2,499<small>/mo</small></div>
-        <div class="plan-price-annual" data-annual-note="€23,990 billed annually">&nbsp;</div>
-        <ul class="plan-features">
-          <li>All 5 circles</li>
-          <li>Full autonomy</li>
-          <li>Dedicated support</li>
-          <li>Unlimited everything</li>
-          <li>Custom boundaries</li>
-          <li>Right-sized tier for your machine count</li>
-        </ul>
-        <button class="plan-btn" onclick="openPlan('Elite')">Choose Elite</button>
+        <div class="plan-desc">For factories with 21+ machines. Three tiers below — choose what fits.</div>
+        <div class="plan-price">from €2,499<small>/mo</small></div>
+        <div class="plan-price-annual">&nbsp;</div>
+        <button class="plan-btn" onclick="document.getElementById('elite-tiers').scrollIntoView({behavior:'smooth'})">See Elite Tiers →</button>
       </div>
     </div>
 
@@ -396,7 +388,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     Elite Full: 51–150 · Elite Managed: 150+
     </p>
 
-    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+    <div id="elite-tiers" style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
 
       <!-- Elite Software -->
       <div style="background:linear-gradient(135deg,rgba(61,90,241,.08),rgba(0,201,255,.04));border:1px solid rgba(61,90,241,.2);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
