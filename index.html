@@ -392,21 +392,66 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     </div>
 
     <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:20px">
-    Starter: 1–5 machines · Enterprise: 6–20 machines ·
-    Elite: 21–150 machines · Elite Managed: 150+
+    Starter: 1–5 machines · Enterprise: 6–20 · Elite Software: 21–50 ·
+    Elite Full: 51–150 · Elite Managed: 150+
     </p>
 
-    <!-- Elite Managed -->
-    <div class="managed-bar">
-      <div>
-        <h3>⚡ Elite Managed</h3>
-        <p>150+ machines · Multi-site · Regulated industries · Custom SLA — from €5,999/month</p>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+
+      <!-- Elite Software -->
+      <div style="background:linear-gradient(135deg,rgba(61,90,241,.08),rgba(0,201,255,.04));border:1px solid rgba(61,90,241,.2);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <div>
+          <div style="color:var(--accent);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">
+            Elite Software — 21–50 machines
+          </div>
+          <div style="color:#fff;font-size:18px;font-weight:700;margin-bottom:4px">
+            from €2,499/month
+          </div>
+          <div style="color:var(--muted);font-size:13px">
+            LSS Engine · DOE on demand · Digital Twin · Predictive maintenance alerts · Self-correcting MRP
+          </div>
+        </div>
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('Elite Software')">
+          Get Started
+        </button>
       </div>
-      <div style="text-align:right">
-        <div class="managed-price" data-monthly="€5,999<small>/mo</small>" data-annual="€57,590<small>/yr</small>">€5,999<small>/mo</small></div>
-        <div class="plan-price-annual" data-annual-note="€57,590 billed annually">&nbsp;</div>
+
+      <!-- Elite Full -->
+      <div style="background:linear-gradient(135deg,rgba(61,90,241,.12),rgba(0,201,255,.06));border:1px solid rgba(61,90,241,.35);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <div>
+          <div style="color:var(--accent2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">
+            Elite Full — 51–150 machines
+          </div>
+          <div style="color:#fff;font-size:18px;font-weight:700;margin-bottom:4px">
+            from €3,999/month
+          </div>
+          <div style="color:var(--muted);font-size:13px">
+            Everything in Elite Software · Direct machine integration · On-site configuration support
+          </div>
+        </div>
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('Elite Full')">
+          Get Started
+        </button>
       </div>
-      <button class="btn-primary" onclick="scrollToContact('Elite Managed')">Contact Sales</button>
+
+      <!-- Elite Managed -->
+      <div style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(61,90,241,.06));border:1px solid rgba(201,168,76,.3);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <div>
+          <div style="color:var(--gold-accent,#C9A84C);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">
+            Elite Managed — 150+ machines · Multi-site
+          </div>
+          <div style="color:#fff;font-size:18px;font-weight:700;margin-bottom:4px">
+            from €5,999/month
+          </div>
+          <div style="color:var(--muted);font-size:13px">
+            Everything in Elite Full · Quantum-optimized scheduling · Quarterly expert review · Custom SLA
+          </div>
+        </div>
+        <a href="#contact" style="white-space:nowrap;background:linear-gradient(135deg,#C9A84C,#E8C96A);color:#0a0c14;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px">
+          Contact Sales
+        </a>
+      </div>
+
     </div>
 
     <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included.</p>
@@ -540,7 +585,9 @@ var planData={
   'Community':{price:'Free',desc:'Start with full visibility across your operation — self-hosted, single site, your data. No card required.'},
   'Starter':{price:function(){return annual?'€1,430<small>/yr</small>':'€149<small>/mo</small>';},desc:'Circles 1–3 with insight and guidance for up to 25 machines. Act on what matters.'},
   'Enterprise':{price:function(){return annual?'€8,630<small>/yr</small>':'€899<small>/mo</small>';},desc:'Circles 1–4 with cross-floor coordination, unlimited machines, and multi-site support.'},
-  'Elite':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–150 machines demanding full operational intelligence. All five circles with full autonomy and custom boundaries.'}
+  'Elite':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–150 machines demanding full operational intelligence. All five circles with full autonomy and custom boundaries.'},
+  'Elite Software':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–50 machines demanding full operational intelligence with predictive maintenance.'},
+  'Elite Full':{price:function(){return annual?'from €38,390<small>/yr</small>':'from €3,999<small>/mo</small>';},desc:'For factories with 51–150 machines requiring direct machine integration and on-site configuration support.'}
 };
 function openPlan(name){
   var d=planData[name];if(!d)return;
