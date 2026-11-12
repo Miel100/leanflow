@@ -384,11 +384,29 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     </div>
 
     <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:20px">
-    Starter: 1–5 machines · Enterprise: 6–20 · Elite Software: 21–50 ·
-    Elite Full: 51–150 · Elite Managed: 150+
+    Starter: 1–5 machines · Enterprise: 6–20 · Energy: up to 50 · Elite Software: 21–50 ·
+    Elite Full: 51–150 · Elite Managed: 150+ · Autonomous: any size
     </p>
 
     <div id="elite-tiers" style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+
+      <!-- LeanFlow Energy -->
+      <div style="background:linear-gradient(135deg,rgba(0,201,140,.08),rgba(0,201,255,.04));border:1px solid rgba(0,201,140,.28);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <div style="flex:1 1 420px;max-width:760px">
+          <div style="color:#00C98C;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">
+            LeanFlow Energy — up to 50 machines
+          </div>
+          <div style="color:#fff;font-size:18px;font-weight:700;margin-bottom:4px">
+            from €1,499/month
+          </div>
+          <div style="color:var(--muted);font-size:13px">
+            Everything in Enterprise · Live energy cost per machine and per product · 72-hour energy forecast · Peak-demand and idle-waste alerts · Production shifted to off-peak hours · Works with your utility's tariff (US &amp; EU) · Energy monitoring kit included
+          </div>
+        </div>
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('LeanFlow Energy')">
+          Get Started
+        </button>
+      </div>
 
       <!-- Elite Software -->
       <div style="background:linear-gradient(135deg,rgba(61,90,241,.08),rgba(0,201,255,.04));border:1px solid rgba(61,90,241,.2);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
@@ -444,6 +462,24 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
         </a>
       </div>
 
+      <!-- LeanFlow Autonomous -->
+      <div style="background:linear-gradient(135deg,rgba(155,89,255,.12),rgba(61,90,241,.08));border:1px solid rgba(155,89,255,.4);border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+        <div style="flex:1 1 420px;max-width:760px">
+          <div style="color:#B48CFF;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">
+            LeanFlow Autonomous — the self-planning factory · Early access
+          </div>
+          <div style="color:#fff;font-size:18px;font-weight:700;margin-bottom:4px">
+            from €7,999/month
+          </div>
+          <div style="color:var(--muted);font-size:13px">
+            Everything in Elite Managed · Plans production around machine health, energy prices and delivery dates — automatically · Live digital twin with cost and carbon per order · Connects to your existing ERP · Every decision explained in plain language
+          </div>
+        </div>
+        <a href="#contact" onclick="scrollToContact('LeanFlow Autonomous');return false;" style="white-space:nowrap;background:linear-gradient(135deg,#9B59FF,#3D5AF1);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px">
+          Apply for Early Access
+        </a>
+      </div>
+
     </div>
 
     <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included.</p>
@@ -496,7 +532,9 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
               <option value="Starter">Starter</option>
               <option value="Enterprise">Enterprise</option>
               <option value="Elite">Elite</option>
+              <option value="LeanFlow Energy">LeanFlow Energy</option>
               <option value="Elite Managed">Elite Managed</option>
+              <option value="LeanFlow Autonomous">LeanFlow Autonomous</option>
               <option value="Annual site license">Annual site license</option>
               <option value="White-label">White-label</option>
               <option value="IP acquisition">IP acquisition</option>
@@ -579,7 +617,8 @@ var planData={
   'Enterprise':{price:function(){return annual?'€8,630<small>/yr</small>':'€899<small>/mo</small>';},desc:'Circles 1–4 with cross-floor coordination, unlimited machines, and multi-site support.'},
   'Elite':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–150 machines demanding full operational intelligence. All five circles with full autonomy and custom boundaries.'},
   'Elite Software':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–50 machines demanding full operational intelligence with predictive maintenance.'},
-  'Elite Full':{price:function(){return annual?'from €38,390<small>/yr</small>':'from €3,999<small>/mo</small>';},desc:'For factories with 51–150 machines requiring direct machine integration and on-site configuration support.'}
+  'Elite Full':{price:function(){return annual?'from €38,390<small>/yr</small>':'from €3,999<small>/mo</small>';},desc:'For factories with 51–150 machines requiring direct machine integration and on-site configuration support.'},
+  'LeanFlow Energy':{price:function(){return annual?'from €14,390<small>/yr</small>':'from €1,499<small>/mo</small>';},desc:'For factories up to 50 machines where energy is a major cost. See what every machine and product really costs in energy, get alerts before peak charges hit, and shift production to cheaper hours — using your own utility tariff. Monitoring kit included.'}
 };
 function openPlan(name){
   var d=planData[name];if(!d)return;
