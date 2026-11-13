@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="LeanFlow — sovereign manufacturing intelligence. Your factory, your data, your intelligence. Five circles of agentic MRP2, from free to fully managed.">
 <title>LeanFlow — Your Factory. Your Data. Your Intelligence.</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#070910">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LeanFlow">
+<meta property="og:title" content="LeanFlow — Energy-aware, health-aware production planning">
+<meta property="og:description" content="Production plans that know what power costs and how your machines feel. Try it on your own factory in 7 days.">
+<meta property="og:image" content="https://miel100.github.io/leanflow/assets/og-image.png">
+<meta property="og:url" content="https://miel100.github.io/leanflow/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://miel100.github.io/leanflow/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +43,7 @@ h2.section-title{font-family:'Playfair Display',Georgia,serif;font-size:40px;fon
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,16,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,200,208,0.15)}
 .nav-inner{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-.nav-logo{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:23px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff,var(--titanium));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo{display:inline-flex;align-items:center;gap:10px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:23px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff,var(--titanium));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .nav-logo span{background:linear-gradient(135deg,var(--titanium),var(--steel));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
@@ -162,8 +174,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,16,0.85)
 footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(90deg,transparent,rgba(136,153,170,0.4),transparent) 1;padding:52px 24px 40px}
 .footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
 .footer-brand .nav-logo{margin-bottom:8px}
+.brand-mark{width:30px;height:30px;flex-shrink:0;display:block}
+.nav-logo .brand-text{background:linear-gradient(135deg,#fff,var(--titanium));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo .brand-text span{background:linear-gradient(135deg,var(--titanium),var(--steel));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .footer-brand p{color:var(--muted);font-size:13px}
-.footer-links{display:flex;gap:28px}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
 .footer-links a{color:var(--muted);font-size:14px;transition:color .2s}
 .footer-links a:hover{color:#fff}
 .footer-legal{width:100%;text-align:center;color:var(--muted);font-size:12px;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
@@ -204,7 +219,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">Lean<span>Flow</span></a>
+    <a href="#top" class="nav-logo" aria-label="LeanFlow home"><img class="brand-mark" src="assets/logo-mark.svg" alt="" width="30" height="30"><span class="brand-text">Lean<span>Flow</span></span></a>
     <div class="nav-links" id="navLinks">
       <a href="#how" onclick="closeNav()">How it works</a>
       <a href="#energy" onclick="closeNav()">Energy</a>
@@ -638,7 +653,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="nav-logo">Lean<span>Flow</span></div>
+      <div class="nav-logo"><img class="brand-mark" src="assets/logo-mark.svg" alt="" width="30" height="30"><span class="brand-text">Lean<span>Flow</span></span></div>
       <p>Sovereign manufacturing intelligence.</p>
     </div>
     <div class="footer-links">
