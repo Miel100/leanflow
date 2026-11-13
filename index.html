@@ -85,6 +85,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,16,0.85)
 .chip-elite{background:rgba(230,180,80,0.14);color:var(--gold);border:1px solid rgba(230,180,80,0.4)}
 
 /* DEMO BANNER */
+.steps-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.step-card{background:linear-gradient(135deg,#0f1117,#141824);border:1px solid rgba(136,153,170,0.15);border-radius:16px;padding:24px 22px}
+.step-card .n{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));margin-bottom:14px}
+.step-card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.step-card p{color:var(--muted);font-size:14px;line-height:1.6}
+.pilot-box{margin-top:28px;background:linear-gradient(135deg,rgba(0,184,116,0.12),rgba(61,90,241,0.10));border:1px solid rgba(0,184,116,0.35);border-radius:20px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.pilot-box .price{font-size:34px;font-weight:800;color:#fff;line-height:1.1}
+.pilot-box .price small{font-size:15px;color:var(--muted);font-weight:500}
+.pilot-box ul{list-style:none;color:var(--muted);font-size:14px;margin-top:10px}
+.pilot-box li{padding-left:22px;position:relative;margin:4px 0}
+.pilot-box li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+@media(max-width:900px){.steps-4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps-4{grid-template-columns:1fr}.pilot-box{padding:24px 20px}}
 .demo-banner{background:linear-gradient(135deg,rgba(61,90,241,0.18),rgba(0,201,255,0.1));border:1px solid rgba(61,90,241,0.4);border-radius:20px;padding:44px;text-align:center;max-width:900px;margin:0 auto}
 .demo-banner h3{font-size:28px;font-weight:800;color:#fff;margin-bottom:12px}
 .demo-banner p{color:var(--muted);font-size:16px;margin-bottom:26px}
@@ -194,7 +207,9 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     <a href="#top" class="nav-logo">Lean<span>Flow</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#how" onclick="closeNav()">How it works</a>
+      <a href="#energy" onclick="closeNav()">Energy</a>
       <a href="#pricing" onclick="closeNav()">Pricing</a>
+      <a href="#pilot" onclick="closeNav()">7-Day Pilot</a>
       <a href="#reliability" onclick="closeNav()">Reliability</a>
       <a href="#contact" onclick="closeNav()">Contact</a>
       <a href="https://leanflow-mrp2-production.up.railway.app" target="_blank" rel="noopener" class="nav-cta">Live Demo →</a>
@@ -300,6 +315,34 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
   </div>
 </section>
 
+<!-- ENERGY-AWARE PLANNING -->
+<section id="energy">
+  <div class="wrap center" style="max-width:760px">
+    <span class="eyebrow">New · Energy &amp; Autonomous</span>
+    <h2 class="section-title">A plan that knows what power costs — and how your machines feel</h2>
+    <p class="section-sub center">Most planning tools only see orders and deadlines. LeanFlow also weighs what electricity costs hour by hour and how healthy each machine is, then builds the plan that balances all three.</p>
+  </div>
+  <div class="wrap">
+    <div class="cards-3">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>See your real energy cost</h3>
+        <p>Energy cost per machine, per order and per product — on your own utility's tariff, in the US and Europe. Get warned before a new demand peak lands on next month's bill, and find equipment drawing power while nothing is being made.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🩺</div>
+        <h3>Plan around machine health</h3>
+        <p>Wear shows up in how a machine behaves long before it breaks. LeanFlow notices the early signs and plans around them — critical work is done before a likely failure, and maintenance is timed so it doesn't cost you a delivery.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧭</div>
+        <h3>Decisions you can read</h3>
+        <p>Every plan comes with a plain-language reason: what moved, why, and what it saves. Your planners stay in charge — the system does the arithmetic across thousands of combinations so they don't have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- DEMO BANNER -->
 <section>
   <div class="wrap">
@@ -354,7 +397,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
           <li>Email support</li>
           <li>1–5 machines</li>
         </ul>
-        <button class="plan-btn" onclick="openPlan('Starter')">Choose Starter</button>
+        <button class="plan-btn" onclick="buy('Starter')">Choose Starter</button>
       </div>
       <!-- Enterprise (featured) -->
       <div class="plan featured">
@@ -371,7 +414,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
           <li>Unlimited users</li>
           <li>Multi-site ready</li>
         </ul>
-        <button class="plan-btn" onclick="openPlan('Enterprise')">Choose Enterprise</button>
+        <button class="plan-btn" onclick="buy('Enterprise')">Choose Enterprise</button>
       </div>
       <!-- Elite -->
       <div class="plan">
@@ -403,7 +446,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
             Everything in Enterprise · Live energy cost per machine and per product · 72-hour energy forecast · Peak-demand and idle-waste alerts · Production shifted to off-peak hours · Works with your utility's tariff (US &amp; EU) · Energy monitoring kit included
           </div>
         </div>
-        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('LeanFlow Energy')">
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="buy('LeanFlow Energy')">
           Get Started
         </button>
       </div>
@@ -421,7 +464,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
             LSS Engine · DOE on demand · Digital Twin · Predictive maintenance alerts · Self-correcting MRP
           </div>
         </div>
-        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('Elite Software')">
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="buy('Elite Software')">
           Get Started
         </button>
       </div>
@@ -439,7 +482,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
             Everything in Elite Software · Direct machine integration · On-site configuration support
           </div>
         </div>
-        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="openPlan('Elite Full')">
+        <button class="plan-btn primary" style="white-space:nowrap;width:auto;padding:12px 24px" onclick="buy('Elite Full')">
           Get Started
         </button>
       </div>
@@ -483,6 +526,35 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     </div>
 
     <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included.</p>
+  </div>
+</section>
+
+<!-- 7-DAY PILOT -->
+<section id="pilot">
+  <div class="wrap center" style="max-width:760px">
+    <span class="eyebrow">Prove it first</span>
+    <h2 class="section-title">See it work on your own factory in 7 days</h2>
+    <p class="section-sub center">No hardware, no installation, no IT project. You share two exports you already have; we show you what a smarter plan would have done with your real orders and your real energy bill.</p>
+  </div>
+  <div class="wrap">
+    <div class="steps-4">
+      <div class="step-card"><div class="n">1</div><h3>Export your orders</h3><p>A CSV or Excel export of open production orders from whatever system you use today. Odoo users can connect directly, read-only.</p></div>
+      <div class="step-card"><div class="n">2</div><h3>Download your meter data</h3><p>Most utilities offer it on their website as "Green Button" or "Download My Data". It takes about two minutes.</p></div>
+      <div class="step-card"><div class="n">3</div><h3>Tell us your shifts</h3><p>Pick your tariff and working hours. Plans only start work when your people are actually on the floor.</p></div>
+      <div class="step-card"><div class="n">4</div><h3>Get your report</h3><p>Your usual plan side by side with the LeanFlow plan: energy cost, peak demand, late orders, and what your meter reveals. Re-run it all week.</p></div>
+    </div>
+    <div class="pilot-box">
+      <div>
+        <div style="color:var(--green);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">7-day pilot</div>
+        <div class="price">€490 <small>one-time</small></div>
+        <ul>
+          <li>Fully credited toward your first month if you subscribe</li>
+          <li>Your data stays private to your pilot and is never used for anyone else</li>
+          <li>An honest report — if there is little to gain, it says so</li>
+        </ul>
+      </div>
+      <button class="btn-primary" onclick="buy('7-Day Pilot')">Start your pilot →</button>
+    </div>
   </div>
 </section>
 
@@ -532,6 +604,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
               <option value="Starter">Starter</option>
               <option value="Enterprise">Enterprise</option>
               <option value="Elite">Elite</option>
+              <option value="7-Day Pilot">7-Day Pilot</option>
               <option value="LeanFlow Energy">LeanFlow Energy</option>
               <option value="Elite Managed">Elite Managed</option>
               <option value="LeanFlow Autonomous">LeanFlow Autonomous</option>
@@ -586,7 +659,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
     <h3 id="modalTitle">Plan</h3>
     <div class="modal-price" id="modalPrice"></div>
     <p id="modalDesc"></p>
-    <a href="#contact" class="btn-primary" onclick="closePlan()" style="display:inline-block;text-align:center">Continue to Contact</a>
+    <a href="#contact" id="modalCta" class="btn-primary" onclick="closePlan()" style="display:inline-block;text-align:center">Continue to Contact</a>
   </div>
 </div>
 
@@ -618,13 +691,39 @@ var planData={
   'Elite':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–150 machines demanding full operational intelligence. All five circles with full autonomy and custom boundaries.'},
   'Elite Software':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–50 machines demanding full operational intelligence with predictive maintenance.'},
   'Elite Full':{price:function(){return annual?'from €38,390<small>/yr</small>':'from €3,999<small>/mo</small>';},desc:'For factories with 51–150 machines requiring direct machine integration and on-site configuration support.'},
+  '7-Day Pilot':{price:'€490<small> one-time</small>',desc:'Seven days with your own orders and meter data — no hardware, no installation. Your usual plan compared with the LeanFlow plan, in a report you can share internally. Fully credited toward your first month if you subscribe.'},
   'LeanFlow Energy':{price:function(){return annual?'from €14,390<small>/yr</small>':'from €1,499<small>/mo</small>';},desc:'For factories up to 50 machines where energy is a major cost. See what every machine and product really costs in energy, get alerts before peak charges hit, and shift production to cheaper hours — using your own utility tariff. Monitoring kit included.'}
 };
+// ----- CHECKOUT -----
+// Paste each Stripe Payment Link here. Empty = button falls back to plan details + contact form.
+var CHECKOUT={
+  'Starter':         {monthly:'', annual:''},
+  'Enterprise':      {monthly:'', annual:''},
+  'LeanFlow Energy': {monthly:'', annual:''},
+  'Elite Software':  {monthly:'', annual:''},
+  'Elite Full':      {monthly:'', annual:''},
+  '7-Day Pilot':     {once:''},
+  'Hardware Kit':    {once:''}
+};
+function checkoutLink(name){
+  var c=CHECKOUT[name]; if(!c) return '';
+  return c.once || (annual ? c.annual : c.monthly) || '';
+}
+function buy(name){
+  var url=checkoutLink(name);
+  if(url){ window.location.href=url; return; }
+  if(planData[name]){ openPlan(name); } else { scrollToContact(name); }
+}
+
 function openPlan(name){
   var d=planData[name];if(!d)return;
   document.getElementById('modalTitle').textContent=name;
   document.getElementById('modalPrice').innerHTML=(typeof d.price==='function')?d.price():d.price;
   document.getElementById('modalDesc').textContent=d.desc;
+  var cta=document.getElementById('modalCta'), url=checkoutLink(name);
+  cta.textContent=url?'Continue to secure checkout':'Continue to Contact';
+  cta.href=url||'#contact';
+  cta.onclick=url?null:function(){ closePlan(); scrollToContact(name); return false; };
   document.getElementById('planModal').classList.add('open');
 }
 function closePlan(){document.getElementById('planModal').classList.remove('open');}
