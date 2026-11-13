@@ -525,7 +525,7 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
 
     </div>
 
-    <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included.</p>
+    <p class="hardware-note">🔌 Optional hardware kits available — connect real machines from <b>€149 one-time</b>. Self-install guides included. <a href="#" onclick="buy('Hardware Kit');return false;" style="color:var(--accent2);font-weight:600">Order a kit →</a></p>
   </div>
 </section>
 
@@ -705,8 +705,20 @@ var CHECKOUT={
   '7-Day Pilot':     {once:''},
   'Hardware Kit':    {once:''}
 };
+// Stripe TEST-mode links (sandbox). Active only with ?checkout=test in the page URL, so the
+// owner can try the full flow on the real site while visitors keep the contact flow.
+var CHECKOUT_TEST={
+  'Starter':         {monthly:'https://buy.stripe.com/test_00weVdcRiat17zj25Yb3q03', annual:'https://buy.stripe.com/test_dRm7sL8B2cB9f1LdOGb3q04'},
+  'Enterprise':      {monthly:'https://buy.stripe.com/test_6oU9AT3gI0Sr9Hr5iab3q05', annual:'https://buy.stripe.com/test_3cI7sLeZqdFd3j3h0Sb3q06'},
+  'LeanFlow Energy': {monthly:'https://buy.stripe.com/test_28E8wPdVm6cL1aV5iab3q07', annual:'https://buy.stripe.com/test_bJefZh9F61Wvg5PeSKb3q08'},
+  'Elite Software':  {monthly:'https://buy.stripe.com/test_cNibJ104w44D9HraCub3q09', annual:'https://buy.stripe.com/test_cNi5kDeZqeJhaLv7qib3q0a'},
+  'Elite Full':      {monthly:'https://buy.stripe.com/test_00wbJ19F6bx54n7dOGb3q0b', annual:'https://buy.stripe.com/test_eVq6oH04wfNldXH6meb3q0c'},
+  '7-Day Pilot':     {once:'https://buy.stripe.com/test_7sY00jbNe9oXbPz9yqb3q0d'},
+  'Hardware Kit':    {once:'https://buy.stripe.com/test_14A14n3gI1Wvg5PbGyb3q0e'}
+};
+var CHECKOUT_MODE=(function(){ try{ return new URLSearchParams(location.search).get('checkout')==='test'?'test':'live'; }catch(e){ return 'live'; } })();
 function checkoutLink(name){
-  var c=CHECKOUT[name]; if(!c) return '';
+  var c=(CHECKOUT_MODE==='test'?CHECKOUT_TEST:CHECKOUT)[name]; if(!c) return '';
   return c.once || (annual ? c.annual : c.monthly) || '';
 }
 function buy(name){
