@@ -548,13 +548,14 @@ footer{background:var(--dark);border-top:1px solid;border-image:linear-gradient(
         <div style="color:var(--green);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">7-day pilot</div>
         <div class="price">€490 <small>one-time</small></div>
         <ul>
-          <li>Fully credited toward your first month if you subscribe</li>
+          <li>Fully credited toward your first month of LeanFlow Energy, Elite or Autonomous</li>
           <li>Your data stays private to your pilot and is never used for anyone else</li>
           <li>An honest report — if there is little to gain, it says so</li>
         </ul>
       </div>
       <button class="btn-primary" onclick="buy('7-Day Pilot')">Start your pilot →</button>
     </div>
+    <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:16px">Smaller operation? Start with the free Community edition or explore the <a href="https://leanflow-mrp2-production.up.railway.app" target="_blank" rel="noopener" style="color:var(--accent2)">live demo</a> — no pilot needed.</p>
   </div>
 </section>
 
@@ -691,7 +692,7 @@ var planData={
   'Elite':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–150 machines demanding full operational intelligence. All five circles with full autonomy and custom boundaries.'},
   'Elite Software':{price:function(){return annual?'from €23,990<small>/yr</small>':'from €2,499<small>/mo</small>';},desc:'For factories with 21–50 machines demanding full operational intelligence with predictive maintenance.'},
   'Elite Full':{price:function(){return annual?'from €38,390<small>/yr</small>':'from €3,999<small>/mo</small>';},desc:'For factories with 51–150 machines requiring direct machine integration and on-site configuration support.'},
-  '7-Day Pilot':{price:'€490<small> one-time</small>',desc:'Seven days with your own orders and meter data — no hardware, no installation. Your usual plan compared with the LeanFlow plan, in a report you can share internally. Fully credited toward your first month if you subscribe.'},
+  '7-Day Pilot':{price:'€490<small> one-time</small>',desc:'Seven days with your own orders and meter data — no hardware, no installation. Your usual plan compared with the LeanFlow plan, in a report you can share internally. Fully credited toward your first month of LeanFlow Energy, Elite or Autonomous.'},
   'LeanFlow Energy':{price:function(){return annual?'from €14,390<small>/yr</small>':'from €1,499<small>/mo</small>';},desc:'For factories up to 50 machines where energy is a major cost. See what every machine and product really costs in energy, get alerts before peak charges hit, and shift production to cheaper hours — using your own utility tariff. Monitoring kit included.'}
 };
 // ----- CHECKOUT -----
