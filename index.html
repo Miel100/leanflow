@@ -726,13 +726,13 @@ var CHECKOUT={
 // Stripe TEST-mode links (sandbox). Active only with ?checkout=test in the page URL, so the
 // owner can try the full flow on the real site while visitors keep the contact flow.
 var CHECKOUT_TEST={
-  'Starter':         {monthly:'https://buy.stripe.com/test_00weVdcRiat17zj25Yb3q03', annual:'https://buy.stripe.com/test_dRm7sL8B2cB9f1LdOGb3q04'},
-  'Enterprise':      {monthly:'https://buy.stripe.com/test_6oU9AT3gI0Sr9Hr5iab3q05', annual:'https://buy.stripe.com/test_3cI7sLeZqdFd3j3h0Sb3q06'},
-  'LeanFlow Energy': {monthly:'https://buy.stripe.com/test_28E8wPdVm6cL1aV5iab3q07', annual:'https://buy.stripe.com/test_bJefZh9F61Wvg5PeSKb3q08'},
-  'Elite Software':  {monthly:'https://buy.stripe.com/test_cNibJ104w44D9HraCub3q09', annual:'https://buy.stripe.com/test_cNi5kDeZqeJhaLv7qib3q0a'},
-  'Elite Full':      {monthly:'https://buy.stripe.com/test_00wbJ19F6bx54n7dOGb3q0b', annual:'https://buy.stripe.com/test_eVq6oH04wfNldXH6meb3q0c'},
-  '7-Day Pilot':     {once:'https://buy.stripe.com/test_7sY00jbNe9oXbPz9yqb3q0d'},
-  'Hardware Kit':    {once:'https://buy.stripe.com/test_14A14n3gI1Wvg5PbGyb3q0e'}
+  'Starter':         {monthly:'https://buy.stripe.com/test_cNicN53fi2w6emkgYV3AY00', annual:'https://buy.stripe.com/test_dRm3cv2bec6G5POdMJ3AY01'},
+  'Enterprise':      {monthly:'https://buy.stripe.com/test_00w6oH17a2w63HGeQN3AY02', annual:'https://buy.stripe.com/test_eVq28r17a5Iia64aAx3AY03'},
+  'LeanFlow Energy': {monthly:'https://buy.stripe.com/test_aFabJ1eY05Ii2DCeQN3AY04', annual:'https://buy.stripe.com/test_00w8wPbLO3Aa0vubEB3AY05'},
+  'Elite Software':  {monthly:'https://buy.stripe.com/test_cNi6oH2be6Mm3HGdMJ3AY06', annual:'https://buy.stripe.com/test_cNi14n5nqgmWba87ol3AY07'},
+  'Elite Full':      {monthly:'https://buy.stripe.com/test_fZubJ1036c6Gdig8sp3AY08', annual:'https://buy.stripe.com/test_8x2cN50364Eeba88sp3AY09'},
+  '7-Day Pilot':     {once:'https://buy.stripe.com/test_4gMfZhaHKeeOdiggYV3AY0a'},
+  'Hardware Kit':    {once:'https://buy.stripe.com/test_eVqdR9g24b2CfqogYV3AY0b'}
 };
 var CHECKOUT_MODE=(function(){ try{ return new URLSearchParams(location.search).get('checkout')==='test'?'test':'live'; }catch(e){ return 'live'; } })();
 function checkoutLink(name){
